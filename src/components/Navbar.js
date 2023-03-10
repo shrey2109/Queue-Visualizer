@@ -7,7 +7,7 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import { TextField } from "@mui/material";
 
-function Navbar() {
+function  Navbar() {
     const myState = useSelector((state) => state.updateProps);
     const dispatch = useDispatch();
 
@@ -17,7 +17,7 @@ function Navbar() {
 
     const handlePush = () => {
       console.log("push clicked");
-        var num = [document.getElementById("textfield").value, ...arr] 
+        var num = [...arr, document.getElementById("textfield").value] 
         document.getElementById("textfield").value = "";
         setArr(num);
         console.log(arr);
@@ -25,6 +25,16 @@ function Navbar() {
         dispatch({
           type: "UPDATE_ARRAY",
           arrVal: num,
+        });
+
+        dispatch({
+          type: "UPDATE_PUSH",
+          pushbtn: true,
+        });
+
+        dispatch({
+          type: "UPDATE_POP",
+          popbtn: false,
         });
       }
         
@@ -40,6 +50,17 @@ function Navbar() {
             type: "UPDATE_ARRAY",
             arrVal: arr,
           });
+          
+          dispatch({
+            type: "UPDATE_PUSH",
+            pushbtn: false,
+          });
+
+          dispatch({
+            type: "UPDATE_POP",
+            popbtn: true,
+          });
+
     }
 
     const handlePopAll = () => {
@@ -49,6 +70,16 @@ function Navbar() {
       dispatch({
         type: "UPDATE_ARRAY",
         arrVal: [],
+      });
+
+      dispatch({
+        type: "UPDATE_PUSH",
+        pushbtn: false,
+      });
+
+      dispatch({
+        type: "UPDATE_POP",
+        popbtn: false,
       });
     }
 
