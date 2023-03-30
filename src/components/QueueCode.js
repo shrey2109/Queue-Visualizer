@@ -281,13 +281,12 @@ public class StaticQueueinjava {
 
     return(
         <>
-            <h1> Code for Queue Data Structure </h1>
+            <h1> Code for Queue Data </h1>
 
         
 
         <Box sx={{ width: '100%', typography: 'body1' }}>
         <TabContext value={value}>
-        {/* <TabContext> */}
             <Box sx={{ borderBottom: 1, borderColor: 'divider'}}>
             <TabList onChange={handleChange} aria-label="lab API tabs example">
             {/* <TabList> */}
